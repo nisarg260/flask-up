@@ -6,17 +6,32 @@
       rel="stylesheet"
       type="text/css"
       href="{{ url_for('static',filename='css/style.css') }}"/>
+      <script> 
+        function checkPassword(form) { 
+          pwd = form.pwd.value; 
+          pwdc = form.pwdc.value; 
+          if (pwd != pwdc) { 
+            alert ("\nPassword did not match: Please try again...") 
+            return false; 
+          } 
+          else{
+            return true; 
+          } 
+        } 
+      </script>
 
 </head>
 <body>
 	<div class="login-page">
   <div class="form">
+    <div class="image" style="background-colo;">
+      <img src="{{url_for('static',filename='css/kisspng-television-show-netflix-trailer-film-la-casa-de-pa-calamares-5b522b61b58e70.3217041915321117137437.png')}}"
+    </div>
     <form class="register-form" action="/signup" method="POST">
       <input type="text" placeholder="name" name="username"/>
       <input type="password" placeholder="password" name="pwd"/>
-      <input type="text" placeholder="password2" name="pwdc"/>
-      <button>create</button>
-      <p class="message">Already registered? <a href="login.html">Sign In</a></p>
+      <input type="password" placeholder="confirm password" name="pwdc"/>
+      <button >create</button>
     </form>
   </div>
 </div>

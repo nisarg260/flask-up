@@ -28,8 +28,8 @@ def my_login():
             for i in user:
                 temp = i['password']
             if check_password_hash(temp, b):
-                return render_template("show.html", a=a)
-    return render_template("error.html")
+                return render_template("show.html", user=a)
+    return render_template("error.html",user=a)
 
 
 @app.route('/signup.html', methods=['POST', 'GET'])
@@ -50,7 +50,7 @@ def add_user():
             id = mongo.db.login.insert({"name": a, "password": _hashed})
             return render_template("show.html",user=a)
 
-    return render_template("error.html")
+    return render_template("error.html",usear = a)
 
 
 if __name__ == '__main__':
